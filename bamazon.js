@@ -11,3 +11,16 @@ const connection = mysql.createConnection({
 connection.connect();
 
 start()
+
+function start (){
+    connection.query('SELECT * FROM products', function (error, res) {
+        if (error) throw error;
+       
+        res.forEach(row => {
+            console.log(`Id: ${row.item_id} Name: ${row.product_name} Price: ${row.price}\n` )
+        });
+        askQuestions()
+
+      
+    })
+}
