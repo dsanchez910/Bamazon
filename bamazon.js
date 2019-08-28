@@ -24,3 +24,22 @@ function start (){
       
     })
 }
+
+function askQuestions() {
+    inquirer.prompt([
+        {
+            message: "Write the product",
+            type: "input",
+            name: "prodId"
+        },
+        {
+            message: "how many would you like to buy?",
+            type: "input",
+            name: "prodQty"
+        }
+    ]).then(function (ans) {
+        var prodId = ans.prodId;
+        var prodQty = ans.prodQty;
+        withdrawProd(prodId, prodQty)
+    });
+}
